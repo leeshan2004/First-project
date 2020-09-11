@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main()
+{
+	char op;
+	int num1, num2;
+
+	do
+	{
+		printf("어떤 연산을 원하십니까? +, -, *, /, %% \n");
+		printf("(종료하고 싶으면 # 을 입력하시오.)\n");
+		
+		rewind(stdin);
+		scanf_s("%c", &op);
+		
+		if (op == '#') continue;
+		printf("정수 2개를 입력하시오.\n");
+		scanf_s("%d %d", &num1, &num2);
+
+		switch (op)
+		{
+		case '+':
+			printf("%d %c %d = %d\n", num1, op, num2, num1 + num2);
+			break;
+		case '-':
+			printf("%d %c %d = %d\n", num1, op, num2, num1 - num2);
+			break;
+		case '*':
+			printf("%d %c %d = %d\n", num1, op, num2, num1 * num2);
+			break;
+		case '/':
+			printf("%d %c %d = %d\n", num1, op, num2, num1 / num2);
+			break;
+		case '%':
+			printf("%d %c %d = %d\n", num1, op, num2, num1 % num2);
+			break;
+		case '#':
+			printf("계산기를 종료합니다.\n");
+			break;
+		default:
+			printf("연산자를 잘못 입력하였습니다.\n");
+		}
+		printf("\n\n");
+		
+	} while (op != '#');
+
+	return 0;
+}

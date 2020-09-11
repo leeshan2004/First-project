@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	char s1[101] = "I am a boy. You are a girl? No, I am a boy. I am a boy and you are a girl.";
+	char* sArr[50] = { NULL };
+	int i = 0;
+
+	printf("%s\n", s1);
+	
+	char* ptr = strtok(s1, " ");
+
+	while (ptr != NULL)
+	{
+		sArr[i] = ptr;
+		i++;
+		ptr = strtok(NULL, " ");
+	}
+
+	for (int i = 0; i < 50; i++)
+	{
+		if (sArr[i] != NULL)
+		{
+			if (strlen(sArr[i]) == 4 && strcmp(sArr[i], "boy.") == 0)
+			{
+				printf("%s ", "girl.");
+			}
+			else if (strlen(sArr[i]) == 3 && strcmp(sArr[i], "boy") == 0)
+			{
+				printf("%s ", "girl");
+			}
+			else if (strlen(sArr[i]) == 4 && strcmp(sArr[i], "girl") == 0)
+			{
+				printf("%s ", "boy");
+			}
+			else if (strlen(sArr[i]) == 5 && strcmp(sArr[i], "girl.") == 0)
+			{
+				printf("%s ", "boy.");
+			}
+			else if (strlen(sArr[i]) == 5 && strcmp(sArr[i], "girl?") == 0)
+			{
+				printf("%s ", "boy?");
+			}
+			else
+			{
+				printf("%s ", sArr[i]);
+			}
+		}
+	}
+	return 0;
+}

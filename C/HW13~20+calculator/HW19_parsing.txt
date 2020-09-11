@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	char s1[101] = "12345678 홍길동 178.5 70.3"; // 학번 이름 신장 몸무게
+	char* sArr[50] = { NULL };
+	int i = 0;
+
+	char* ptr = strtok(s1, " ");
+
+	while (ptr != NULL)
+	{
+		sArr[i] = ptr;
+		i++;
+		ptr = strtok(NULL, " ");
+	}
+
+	int ID = atoi(sArr[0]);
+	char* sname = sArr[1];
+	float height = atof(sArr[2]);
+	float weight = atof(sArr[3]);
+
+	printf("ID: %d\nNAME: %s\nHEIGHT: %f\nWEIGHT: %f\n", ID, sname, height, weight);
+
+	return 0;
+}

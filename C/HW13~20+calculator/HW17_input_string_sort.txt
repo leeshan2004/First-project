@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char arr[30];
+	int indexMin;
+	char temp;
+	
+	printf("enter a word: ");
+	scanf_s("%s", arr, sizeof(arr));
+	int n = strlen(arr);
+
+	for (int i = 0; i < n; i++)
+		printf("%c ", arr[i]);
+	printf("\n");
+
+	// selection sort
+	for (int i = 0; i < n - 1; i++)
+	{
+		indexMin = i;
+		for (int j = i + 1; j < n; j++)
+		{
+			if (arr[j] < arr[indexMin])
+			{
+				indexMin = j;
+			}
+		}
+		temp = arr[indexMin];
+		arr[indexMin] = arr[i];
+		arr[i] = temp;
+		for (int k = 0; k < n; k++)
+			printf("%c ", arr[k]);
+		printf("\n");
+	}
+
+	return 0;
+}
